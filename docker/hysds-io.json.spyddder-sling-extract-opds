@@ -1,0 +1,24 @@
+{
+  "label" : "Data Sling and Extract OpenDataset",
+  "submission_type": "individual",
+  "recommended-queues" : [ "aria-job_worker-small" ],
+  "allowed_accounts": [ "ops" ],
+  "params" : [
+    { 
+      "name": "localize_url",
+      "from": "submitter"
+    },
+    { 
+      "name": "file",
+      "from": "submitter"
+    },
+    { 
+      "name": "prod_name",
+      "from": "submitter"
+    },
+    { 
+      "name": "prod_date",
+      "from": "submitter"
+    }
+  ]
+}

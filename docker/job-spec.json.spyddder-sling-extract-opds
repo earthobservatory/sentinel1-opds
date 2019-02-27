@@ -1,5 +1,5 @@
 {
-  "command": "/home/ops/sentinel1-opds/sling_extract_opds.sh",
+  "command": "/home/ops/ariamh/frameMetadata/sling_extract_opds.py",
   "imported_worker_files": {
     "$HOME/.netrc": "/home/ops/.netrc",
     "$HOME/.aws": "/home/ops/.aws",
