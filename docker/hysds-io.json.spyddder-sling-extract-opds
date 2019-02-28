@@ -5,7 +5,7 @@
   "allowed_accounts": [ "ops" ],
   "params" : [
     { 
-      "name": "localize_url",
+      "name": "download_url",
       "from": "submitter"
     },
     { 

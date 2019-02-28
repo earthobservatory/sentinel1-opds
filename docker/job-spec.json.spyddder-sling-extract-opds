@@ -17,8 +17,8 @@
   ],
   "disk_usage": "50GB",
   "params" : [
-    { 
-      "name": "localize_url",
+    {
+      "name": "download_url",
       "destination": "positional"
     },
     { 

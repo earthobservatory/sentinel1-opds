@@ -16,26 +16,26 @@ logging.basicConfig(format=log_format, level=logging.INFO)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("localize_url", help="url of the localized file")
+    parser.add_argument("download_url", help="url of the localized file")
     parser.add_argument("file", help="localized product file")
     parser.add_argument("prod_name", help="product name to use for " +
                                           " canonical product directory")
     parser.add_argument("prod_date", help="product date to use for " +
                                           " canonical product directory")
     args = parser.parse_args()
-    localize_url = args.localize_url
+    download_url = args.download_url
     try:
         filename, file_extension = os.path.splitext(args.file)
-        logging.info("localize_url : %s \nfile : %s" % (localize_url, args.file))
+        logging.info("download_url : %s \nfile : %s" % (download_url, args.file))
         try:
             logging.info("calling osaka")
-            osaka.main.get(localize_url, args.file)
+            osaka.main.get(download_url, args.file)
             logging.info("calling osaka successful")
         except:
             logging.info("calling osaka failed. sleeping ..")
             time.sleep(100)
             logging.info("calling osaka again")
-            osaka.main.get(localize_url, args.file)
+            osaka.main.get(download_url, args.file)
             logging.info("calling osaka successful")
 
         # Corrects input dataset to input file, if supplied input dataset
@@ -48,6 +48,7 @@ if __name__ == "__main__":
         if not sling_extract.is_non_zero_file(args.file):
             raise Exception("File Not Found or Empty File : %s" % args.file)
 
+        # TODO: ensure OPDS prefix is here for ingestion into opendataset bucket
         sling_extract.create_product(args.file, args.prod_name, args.prod_date)
 
         # Tag this job to open dataset with met.json
@@ -60,7 +61,7 @@ if __name__ == "__main__":
                 metadata['tags'] = 'opendataset'
 
             with open(metadata_file, "w") as f:
-                json.dump(metadata, f)
+                json.dump(metadata, f, indent=2)
 
         else:
             logging.warning("Can't tag download as opendataset. Met.json not found!")
