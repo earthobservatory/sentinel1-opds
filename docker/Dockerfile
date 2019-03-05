@@ -11,20 +11,20 @@ RUN set -ex \
  && source /home/ops/verdi/bin/activate \
  && sudo chown -R ops:ops /home/ops/sentinel1-opds \
  && mv /home/ops/sentinel1-opds/ariamh /home/ops/  \
- && mv /home/ops/verdi/ops/sentinel1-opds/qquery /home/ops/verdi/ops/qquery \
- && mv /home/ops/verdi/ops/sentinel1-opds/scihub /home/ops/verdi/ops/scihub \
- && mv /home/ops/verdi/ops/sentinel1-opds/unavco /home/ops/verdi/ops/unavco \
- && mv /home/ops/verdi/ops/sentinel1-opds/asf /home/ops/verdi/ops/asf \
- && mv /home/ops/verdi/ops/sentinel1-opds/apihub /home/ops/verdi/ops/apihub \
- && cd /home/ops/verdi/ops/qquery \
+ && mv /home/ops/sentinel1-opds/qquery /home/ops/qquery \
+ && mv /home/ops/sentinel1-opds/scihub /home/ops/scihub \
+ && mv /home/ops/sentinel1-opds/unavco /home/ops/unavco \
+ && mv /home/ops/sentinel1-opds/asf /home/ops/asf \
+ && mv /home/ops/sentinel1-opds/apihub /home/ops/apihub \
+ && cd /home/ops/qquery
  && pip install -e . \
- && cd /home/ops/verdi/ops/scihub \
+ && cd /home/ops/scihub \
  && pip install -e . \
- && cd /home/ops/verdi/ops/unavco \
+ && cd /home/ops/unavco \
  && pip install -e . \
- && cd /home/ops/verdi/ops/asf \
+ && cd /home/ops/asf \
  && pip install -e . \
- && cd /home/ops/verdi/ops/apihub \
+ && cd /home/ops/apihub \
  && pip install -e .
 
 # for sling_extract.py to be referenced by sling_extract_opds.py

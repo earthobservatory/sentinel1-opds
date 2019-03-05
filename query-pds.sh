@@ -2,7 +2,7 @@
 
 # wrapper for qquery query.py
 
-QUERY_DIR=$HOME/verdi/ops/qquery/qquery
+QUERY_DIR=$HOME/qquery/qquery
 
 #validate input args
 if [ -z "${1}" ]

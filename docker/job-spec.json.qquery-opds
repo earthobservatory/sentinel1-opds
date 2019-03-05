@@ -1,5 +1,5 @@
 {
-  "command":"/home/ops/verdi/ops/sentinel1-opds/query.sh",
+  "command":"/home/ops/sentinel1-opds/query-pds.sh",
   "imported_worker_files":{"/home/ops/.netrc":"/home/ops/.netrc"},
   "required-queues": [
       "factotum-job_worker-apihub_throttled",
