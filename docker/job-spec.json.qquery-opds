@@ -32,7 +32,6 @@
     "name": "dns_list",
     "destination": "positional"
   },
-    ,
   {
     "name": "pds_queue",
     "destination": "positional"

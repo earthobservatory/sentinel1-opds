@@ -26,11 +26,10 @@
      "from": "submitter",
      "type": "text"
     },
-      ,
     {
      "name": "pds_queue",
      "from": "submitter",
-     "type": "text",
+     "type": "text"
 
     }
   ]
