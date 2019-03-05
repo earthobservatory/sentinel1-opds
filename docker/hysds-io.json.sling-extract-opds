@@ -1,5 +1,5 @@
 {
-  "label" : "Data Sling and Extract OpenDataset",
+  "label" : "OpenDataset - Data Sling and Extract",
   "submission_type": "individual",
   "recommended-queues" : [ "aria-job_worker-small" ],
   "allowed_accounts": [ "ops" ],

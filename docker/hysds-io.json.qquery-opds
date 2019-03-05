@@ -1,0 +1,30 @@
+{
+    "label" : "OpenDataset - Query AOI for Endpoint",
+    "allowed_accounts": [ "ops" ],
+    "submission_type":"individual",
+    "params" : [
+    {
+      "name": "aoi",
+      "from": "submitter",
+      "type": "text"
+    },
+    {
+     "name": "endpoint",
+     "from": "submitter",
+     "type": "enum",
+     "default": "asf",
+     "enumerables": ["asf","scihub","apihub","unavco"]
+    },
+    {
+      "name": "sling_version",
+      "from": "submitter",
+      "type": "jobspec_version",
+      "version_regex": "sling"
+    },
+    {
+     "name": "dns_list",
+     "from": "submitter",
+     "type": "text"
+    }
+  ]
+}
