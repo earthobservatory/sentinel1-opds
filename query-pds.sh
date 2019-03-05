@@ -26,4 +26,10 @@ if [ -z "${4}" ]
     exit 1
 fi
 
-${QUERY_DIR}/query.py --region ${1} --query-type ${2} --tag ${3} --dns_list ${4} -pds
+if [ -z "${5}" ]
+    then
+    echo "No opendataset queue name specified"
+    exit 1
+fi
+
+${QUERY_DIR}/query.py --region ${1} --query-type ${2} --tag ${3} --dns_list ${4} --pds_queue ${5}
