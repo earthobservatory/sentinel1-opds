@@ -8,6 +8,7 @@ USER ops
 # copy ariamh code ensure proper permissions, and move dependencies to final locations
 COPY . /home/ops/sentinel1-opds
 RUN set -ex \
+ && source /home/ops/verdi/bin/activate \
  && sudo chown -R ops:ops /home/ops/sentinel1-opds \
  && mv /home/ops/sentinel1-opds/ariamh /home/ops/  \
  && mv /home/ops/verdi/ops/sentinel1-opds/qquery /home/ops/verdi/ops/qquery \
@@ -26,6 +27,7 @@ RUN set -ex \
  && cd /home/ops/verdi/ops/apihub \
  && pip install -e .
 
+# for sling_extract.py to be referenced by sling_extract_opds.py
 ENV PYTHONPATH "${PYTHONPATH}:/home/ops/ariamh/frameMetadata"
 
 # set entrypoint
