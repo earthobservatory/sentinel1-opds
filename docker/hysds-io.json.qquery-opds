@@ -19,7 +19,7 @@
       "name": "sling_version",
       "from": "submitter",
       "type": "jobspec_version",
-      "version_regex": "sling"
+      "version_regex": "sling-extract-opds"
     },
     {
      "name": "dns_list",
