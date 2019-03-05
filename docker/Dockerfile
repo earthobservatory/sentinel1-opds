@@ -16,7 +16,7 @@ RUN set -ex \
  && mv /home/ops/sentinel1-opds/unavco /home/ops/unavco \
  && mv /home/ops/sentinel1-opds/asf /home/ops/asf \
  && mv /home/ops/sentinel1-opds/apihub /home/ops/apihub \
- && cd /home/ops/qquery
+ && cd /home/ops/qquery \
  && pip install -e . \
  && cd /home/ops/scihub \
  && pip install -e . \
