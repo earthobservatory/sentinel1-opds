@@ -135,7 +135,7 @@ if __name__ == "__main__":
     opds_polygon = Polygon(opds_aoi['location']['coordinates'][0])
 
     # Submit the OPDS qquery first
-    submit_qquery_job(opds_aoi, query_endpoint, dns_list, opds_rtag, opds_queue)
+    submit_qquery_job(opds_aoi, query_endpoint, dns_list, opds_rtag, opds_rtag, opds_queue)
 
     aois = sorted(aoi,key=lambda aoi: 0 if (not "metadata" in aoi or not "priority" in aoi["metadata"]) else aoi["metadata"]["priority"],reverse=True)
 
