@@ -83,7 +83,7 @@ def submit_qquery_job(region, query_endpoint, dns_list, sling_rtag, pds_queue=No
             params.append(queue)
 
         # for each aoi and endpoint, submit a query job
-        print("submitting %s query job for %s over aoi: %s" % (job_header, qtype, region["id"]))
+        print("{0: <60} {1}".format("Submitting %s query job for %s over aoi:" % (job_header, qtype), region["id"]))
         submit_mozart_job({}, rule,
                           hysdsio={"id": "internal-temporary-wiring",
                                    "params": params,
@@ -145,12 +145,12 @@ if __name__ == "__main__":
         user_tags = region.get('metadata', {}).get('user_tags', [])
         if "inactive" in user_tags:
             #if the region is inactive, skip
-            print("AOI {0} marked as inactive. Skipping".format(region["id"]))
+            print("{0: <60} {1}".format("AOI marked as inactive. Skipping:", region["id"]))
             continue
 
         if not outlier(opds_polygon, region_bbox):
             # if the region is fully within OPDS AOI, skip
-            print("AOI {0} is fully within Opendataset Polygon. Need not submit qquery, skipping.".format(region["id"]))
+            print("{0: <60} {1}".format("AOI is fully within Opendataset Polygon. Skipping:",region["id"]))
             continue
 
         #skip regions without types_types map
