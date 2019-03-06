@@ -28,7 +28,8 @@ def outlier(opds_polygon, bbox):
             return True
     return False
 
-def submit_qquery_job(region, query_endpoint, dns_list, sling_rtag, pds_queue=None):
+
+def submit_qquery_job(region, query_endpoint, dns_list, qquery_rtag, sling_rtag, pds_queue=None):
 
     # set query priority
     priority = 0
@@ -158,7 +159,7 @@ if __name__ == "__main__":
             continue
 
         #submit qquery for sling to own bucket
-        submit_qquery_job(region, query_endpoint, dns_list, sling_rtag)
+        submit_qquery_job(region, query_endpoint, dns_list, qquery_rtag, sling_rtag)
 
 
 
