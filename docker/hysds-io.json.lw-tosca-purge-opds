@@ -24,7 +24,7 @@
       "name": "s3_profile",
       "from": "submitter",
       "type": "text",
-      "value": "opendataset"
+      "default": "opendataset"
     }
   ]
 }
