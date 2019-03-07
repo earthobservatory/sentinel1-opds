@@ -5,6 +5,9 @@ git clone https://github.com/earthobservatory/ariamh.git -b sling_opds
 
 git clone https://github.com/earthobservatory/qquery.git -b sling-opds
 
+git clone https://github.com/earthobservatory/lightweight-jobs.git -b sling-opds
+
+
 # Pulls in ARIA repos outside qquery
 scihub_url="https://github.com/hysds/scihub.git"
 asf_url="https://github.com/hysds/asf-query.git"

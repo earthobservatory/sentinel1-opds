@@ -11,6 +11,7 @@ RUN set -ex \
  && source /home/ops/verdi/bin/activate \
  && sudo chown -R ops:ops /home/ops/sentinel1-opds \
  && mv /home/ops/sentinel1-opds/ariamh /home/ops/  \
+  && mv /home/ops/sentinel1-opds/lightweight-jobs /home/ops/ \
  && mv /home/ops/sentinel1-opds/qquery /home/ops/qquery \
  && mv /home/ops/sentinel1-opds/scihub /home/ops/scihub \
  && mv /home/ops/sentinel1-opds/unavco /home/ops/unavco \
@@ -29,6 +30,9 @@ RUN set -ex \
 
 # for sling_extract.py to be referenced by sling_extract_opds.py
 ENV PYTHONPATH "${PYTHONPATH}:/home/ops/ariamh/frameMetadata"
+
+# for purge.py to be referenced by purge-pds.py
+ENV PYTHONPATH "${PYTHONPATH}:/home/ops/sentinel1-opds/lightweight-jobs"
 
 # set entrypoint
 WORKDIR /home/ops

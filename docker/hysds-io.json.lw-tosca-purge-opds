@@ -1,0 +1,30 @@
+{
+  "label":"OpenDataset - Purge datasets",
+  "component":"tosca",
+  "submission_type":"individual",
+  "params" : [
+    {
+      "name": "query",
+      "type": "text",
+      "from": "passthrough"
+    },
+    {
+      "name": "component",
+      "from": "value",
+      "type": "text",
+      "value": "tosca"
+    },
+    {
+      "name": "operation",
+      "from": "value",
+      "type": "text",
+      "value": "purge"
+    },
+    {
+      "name": "s3_profile",
+      "from": "submitter",
+      "type": "text",
+      "value": "opendataset"
+    }
+  ]
+}

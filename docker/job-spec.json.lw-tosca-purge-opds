@@ -1,0 +1,24 @@
+{
+  "required_queues":["system-jobs-queue"],
+  "command":"/home/ops/sentinel1-opds/purge-pds.sh",
+  "imported_worker_files":{"$HOME/.aws":"/home/ops/.aws"},
+  "disk_usage":"3GB",
+  "params" : [
+    {
+      "name": "query",
+      "destination": "positional"
+    },
+    {
+      "name": "component",
+      "destination": "positional"
+    },
+    {
+      "name": "operation",
+      "destination": "positional"
+    },
+    {
+      "name": "s3_profile",
+      "destination": "positional"
+    }
+   ]
+}
