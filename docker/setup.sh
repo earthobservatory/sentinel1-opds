@@ -3,7 +3,7 @@
 # clone ariamh to be moved to its final location by docker builder
 git clone https://github.com/earthobservatory/ariamh.git
 
-git clone https://github.com/earthobservatory/qquery.git -b sling-opds
+git clone https://github.com/earthobservatory/qquery.git
 
 git clone https://github.com/earthobservatory/lightweight-jobs.git -b sling-opds
 
