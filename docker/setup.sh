@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # clone ariamh to be moved to its final location by docker builder
-git clone https://github.com/earthobservatory/ariamh.git -b sling_opds
+git clone https://github.com/earthobservatory/ariamh.git
 
 git clone https://github.com/earthobservatory/qquery.git -b sling-opds
 
