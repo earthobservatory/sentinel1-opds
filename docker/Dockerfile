@@ -28,11 +28,9 @@ RUN set -ex \
  && cd /home/ops/apihub \
  && pip install -e .
 
-# for sling_extract.py to be referenced by sling_extract_opds.py
-ENV PYTHONPATH "${PYTHONPATH}:/home/ops/ariamh/frameMetadata"
+# for sling_extract.py to be referenced by sling_extract_opds.py, and for purge.py to be referenced by purge-pds.py
+ENV PYTHONPATH "${PYTHONPATH}:/home/ops/ariamh/frameMetadata:/home/ops/lightweight-jobs"
 
-# for purge.py to be referenced by purge-pds.py
-ENV PYTHONPATH "${PYTHONPATH}:/home/ops/sentinel1-opds/lightweight-jobs"
 
 # set entrypoint
 WORKDIR /home/ops
