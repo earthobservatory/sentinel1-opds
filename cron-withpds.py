@@ -118,7 +118,7 @@ if __name__ == "__main__":
     opds_rtag = args.opds_tag
     opds_aoi_name = args.opds_aoi
     opds_queue = args.opds_queue
-    is_asf = query_endpoint is "asf"
+    is_asf = query_endpoint == "asf"
 
     cfg = config()
     aoi = get_aois(cfg) #retrieves a list of aois that match the grq values in settings.cfg
