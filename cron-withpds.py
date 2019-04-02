@@ -11,7 +11,7 @@ import sys
 import requests
 import datetime
 import argparse
-
+import time
 from qquery.utilities import config, get_aois
 from hysds_commons.job_utils import submit_mozart_job
 from hysds.celery import app
@@ -118,6 +118,7 @@ if __name__ == "__main__":
     opds_rtag = args.opds_tag
     opds_aoi_name = args.opds_aoi
     opds_queue = args.opds_queue
+    is_asf = query_endpoint is "asf"
 
     cfg = config()
     aoi = get_aois(cfg) #retrieves a list of aois that match the grq values in settings.cfg
@@ -135,8 +136,10 @@ if __name__ == "__main__":
     opds_aoi = aoi.pop(opds_aoi_ind)
     opds_polygon = Polygon(opds_aoi['location']['coordinates'][0])
 
-    # Submit the OPDS qquery first
-    submit_qquery_job(opds_aoi, query_endpoint, dns_list, opds_rtag, opds_rtag, opds_queue)
+    if is_asf:
+        # Submit the OPDS qquery first if it's ASF endpoint
+        submit_qquery_job(opds_aoi, query_endpoint, dns_list, opds_rtag, opds_rtag, opds_queue)
+        time.sleep(180)
 
     aois = sorted(aoi,key=lambda aoi: 0 if (not "metadata" in aoi or not "priority" in aoi["metadata"]) else aoi["metadata"]["priority"],reverse=True)
 
@@ -149,8 +152,8 @@ if __name__ == "__main__":
             print("{0: <60}:  {1}".format("AOI marked as inactive. Skipping", region["id"]))
             continue
 
-        if not outlier(opds_polygon, region_bbox):
-            # if the region is fully within OPDS AOI, skip
+        if is_asf and not outlier(opds_polygon, region_bbox):
+            # if endpoint is asf and the region is fully within OPDS AOI, skip
             print("{0: <60}:  {1}".format("AOI is fully within Opendataset Polygon. Skipping", region["id"]))
             continue
 
