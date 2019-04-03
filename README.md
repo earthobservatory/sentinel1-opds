@@ -38,7 +38,7 @@ _s3://sentinel1-slc-seasia-pds/datasets/slc/v1.1/_
 |**`hhmmss`**   |Acquisition End Time (UTC)  |Two-digit hour, two-digit minutes, two-digit seconds|
 |**`OOOOOO`**   |Absolute orbit number at product start time |In the range of 000001-999999|
 |**`DDDDDD`**   |Mission data take ID        |In the range 000001-FFFFFF|
-|**`CCC`**      |Hexadecimal string generated from CRC-16 of the manifest file |CRC-16 algorithm used to compute the unique identifier is CRC-CCITT (0xFFFF)|
+|**`CCCC`**      |Hexadecimal string generated from CRC-16 of the manifest file |CRC-16 algorithm used to compute the unique identifier is CRC-CCITT (0xFFFF)|
 
 Table 1: Description of elements included in AWS S3 bucket link 
 ([_Source_](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-1-sar/products-algorithms/level-1-product-formatting))
