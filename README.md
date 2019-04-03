@@ -13,7 +13,7 @@ We ingest Sentinel-1A/B Level-1 Interferometric Wideswath(IW) SLC over the follo
 <img src="https://github.com/earthobservatory/sentinel1-opds/blob/master/misc/opendatasetaoi.png" width="650">
 </p>
 
-Specific geojson coordinates of the region of interest can be found [here](https://github.com/earthobservatory/sentinel1-opds/blob/master/scripts/opendataset.geojson).
+Specific geojson coordinates of the region of interest can be found [here](https://github.com/earthobservatory/sentinel1-opds/blob/master/misc/opendataset.geojson).
 
 ### AWS S3 bucket link structure
 
