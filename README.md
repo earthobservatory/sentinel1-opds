@@ -43,11 +43,15 @@ Table 1: Description of elements included in AWS S3 bucket link
  
 For instance, a scene directory will look like the following: 
 
-`s3://sentinel1-slc-seasia-pds/datasets/slc/v1.1/2018/02/09/S1B_IW_SLC__1SDV_20180209T100011_20180209T100047_009545_0112FD_00E6` 
+```
+s3://sentinel1-slc-seasia-pds/datasets/slc/v1.1/2018/02/09/S1B_IW_SLC__1SDV_20180209T100011_20180209T100047_009545_0112FD_00E6
+``` 
 
 **or**
 
-`http://sentinel1-slc-seasia-pds.s3-website-ap-southeast-1.amazonaws.com/datasets/slc/v1.1/2018/02/09/S1B_IW_SLC__1SDV_20180209T100011_20180209T100047_009545_0112FD_00E6`
+```
+http://sentinel1-slc-seasia-pds.s3-website-ap-southeast-1.amazonaws.com/datasets/slc/v1.1/2018/02/09/S1B_IW_SLC__1SDV_20180209T100011_20180209T100047_009545_0112FD_00E6
+```
 
 Where S1B is Sentinel-1B (S1B), IW is Interferometric Wide-swath, DV is dual VV+VH polarization of the SLC data, acquired start date-time on 9th Feb 2018 (2018/02/09) at 10:00:11, acquired end date-time on 9th Feb 2018 (2018/02/09) at 10:00:47, orbit number 009545, mission data-take ID of 0112FD, and product unique identifier of 00E6 (refer to Table 1).
 
