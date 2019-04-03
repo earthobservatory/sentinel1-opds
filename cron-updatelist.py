@@ -80,7 +80,6 @@ def upload_catalog_file(resource, local_file):
         print("Uploaded {} to {}:{}".format(local_file,S3_BUCKET, key))
 
 
-
 def gather_scenes(start_time, end_time):
     session = boto3.session.Session(profile_name='opendataset')
     s3_client = session.client('s3')
@@ -119,8 +118,8 @@ def gather_scenes(start_time, end_time):
             else:
                 print("%s found in current scene list. Skipping..." % this_id)
 
-
     print("We have to update %s scenes in the catalog. Runtime: %s" % (len(scenes), datetime.utcnow().isoformat()))
+
     with open(local_file, 'a') as fd:
         writer = csv.writer(fd)
 
@@ -146,6 +145,7 @@ def gather_scenes(start_time, end_time):
     fd.close()
 
     upload_catalog_file(s3_resource, local_file)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
