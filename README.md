@@ -6,17 +6,24 @@ The S1 SLC dataset contains Synthetic Aperture Radar (SAR) data obtained by the 
 
 ## Accessing S1 SLC on AWS (South and Southeast Asia, Taiwan, and Japan)
 
-We ingest Sentinel-1A/B Level-1 Interferometric Wideswath(IW) SLC over the following [region](https://github.com/earthobservatory/sentinel1-opds/blob/master/scripts/opendataset.geojson):
+We ingest Sentinel-1A/B Level-1 Interferometric Wideswath(IW) SLC over the following region of\ interest:
+<p align="center">
+<img src="https://github.com/earthobservatory/sentinel1-opds/blob/master/misc/opendatasetaoi.png" width="650">
+</p>
 
-<script src="https://embed.github.com/view/geojson/earthobservatory/sentinel1-opds/master/scripts/opendataset.geojson"></script>
+Specific geojson coordinates of the region of interest can be found [here](https://github.com/earthobservatory/sentinel1-opds/blob/master/scripts/opendataset.geojson)
 
-Ingestion is done hourly
-
-S1 SLC IW mode data is organized using a directory structure that is based on the **start date of the acquisition**. Please refer to Box 1 for more details on the directory structure and Table 1 for the description of different elements of the S3 bucket link.
+Sentinel-1 SLC data for the above region of interest will be updated regularly, as it becomes available on the Alaska Satellite Facility endpoint and then ingested into the Open Data Bucket.
 
 ### AWS S3 bucket link structure
 
+S1 SLC IW mode data is organized using a directory structure that is based on the **start date of the acquisition**. Please refer to Table 1 for the description of different elements of the S3 bucket link.
+
+---
+
 _s3://sentinel1-slc-seasia-pds/datasets/slc/v1.1/_**`YYYY`/`MM`/`DD`/`XXX`\_`BB`\_SLC\_\_1S`PP`\_`YYYYMMDD`T`HHMMSS`\_`yyyymmdd`T`hhmmss`\_`OOOOOO`\_`DDDDDD`\_`CCCC`**
+
+---
 
 
 |Variable      |Description                |Details (code: code details)|
@@ -65,4 +72,18 @@ Each S1 SLC scene’s directory includes:
  - Other metadata files (context.json, datasets.json) created by the ingestion system to track ingest jobs.
 
 ### Catalog
+
+A csv describing all available scenes is available at:
+
+```
+s3://sentinel1-slc-seasia-pds/datasets/slc/v1.1/catalog.csv
+
+```
+
+**or**
+
+```
+http://sentinel1-slc-seasia-pds.s3-website-ap-southeast-1.amazonaws.com/datasets/slc/v1.1/catalog.csv
+```
+This list will be updated daily at 16:00:00 UTC.
 
