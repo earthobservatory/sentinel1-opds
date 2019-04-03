@@ -6,7 +6,9 @@ The S1 SLC dataset contains Synthetic Aperture Radar (SAR) data obtained by the 
 
 ## Accessing S1 SLC on AWS (South and Southeast Asia, Taiwan, and Japan)
 
-We ingest Sentinel-1A/B Level-1 Interferometric Wideswath(IW) SLC over the following [region]():
+We ingest Sentinel-1A/B Level-1 Interferometric Wideswath(IW) SLC over the following [region](https://github.com/earthobservatory/sentinel1-opds/blob/master/scripts/opendataset.geojson):
+
+<script src="https://embed.github.com/view/geojson/earthobservatory/sentinel1-opds/master/scripts/opendataset.geojson"></script>
 
 Ingestion is done hourly
 
