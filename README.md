@@ -92,3 +92,6 @@ Each S1 SLC scene’s directory includes:
      - polygon of acquired area.
  - Other metadata files (context.json, datasets.json) created by the ingestion system to track ingest jobs.
 
+## Acknowledgements
+
+We would like to thank Amazon Web Services for providing the storage resources for this program. Also, special thanks to the folks working on the ARIA system at [NASA JPL/Caltech](https://github.com/hysds) ([@pymonger](https://github.com/pymonger), [@hookhua](https://github.com/hookhua))for their contributions which are vital in making this possible.
