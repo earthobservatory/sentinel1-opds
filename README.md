@@ -94,4 +94,4 @@ Each S1 SLC scene’s directory includes:
 
 ## Acknowledgements
 
-We would like to thank Amazon Web Services for providing the storage resources for this program. Also, special thanks to ([@pymonger](https://github.com/pymonger) and [@hookhua](https://github.com/hookhua))for their contributions which are vital in making this possible.
+We would like to thank Amazon Web Services for providing the storage resources for this program. Also, special thanks to [@pymonger](https://github.com/pymonger) and [@hookhua](https://github.com/hookhua) for their contributions which are vital in making this possible.
