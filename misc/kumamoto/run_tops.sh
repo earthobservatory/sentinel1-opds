@@ -1,5 +1,7 @@
 #
 #  make all the interferograms. can run them in parallel.
+#  Modified from examples here:
+#  https://github.com/qingkaikong/blog/tree/master/29_Processing_InSAR_Sentinel
 #
 #!/bin/bash
 
