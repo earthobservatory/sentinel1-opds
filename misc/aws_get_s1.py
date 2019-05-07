@@ -20,10 +20,11 @@ def cmdLineParse():
 
 
 Example:
-
-    aws_get_s1a.py -csv asf_generated.csv
+    To do 16 parallel downloads (at 16 different processors) at the same time:
+    aws_get_s1a.py -i asf_generated.csv -n 16
 
 ''')
+
 
     parser.add_argument('-i', '--csv_file', type=str, required=True, dest='fcsv',
             help = 'csv file directly out from ASF Vertex')
