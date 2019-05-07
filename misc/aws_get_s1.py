@@ -28,7 +28,7 @@ Example:
     parser.add_argument('-i', '--csv_file', type=str, required=True, dest='fcsv',
             help = 'csv file directly out from ASF Vertex')
     parser.add_argument('-n', '--nproc', type=int, required=False, dest='nproc',
-            help = 'number of processor to be used')
+            help='number of processor to be used. default: 1')
     if len(sys.argv) < 1:
         print
         parser.print_help()
