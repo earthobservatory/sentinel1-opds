@@ -91,6 +91,14 @@ Each S1 SLC scene’s directory includes:
      - track number
      - polygon of acquired area.
  - Other metadata files (context.json, datasets.json) created by the ingestion system to track ingest jobs.
+ 
+ ### Sample Download Scripts
+ The following shows some sample scripts for accessing and batch downloading from `sentinel1-slc-seasia-pds`:
+ 
+ 1. Batch download from AWS, querying ASF endpoint: [sentinel_query_download](https://github.com/ericlindsey/sentinel_query_download) 
+ 1. Multi-threaded download: [aws_get_s1.py](https://github.com/earthobservatory/sentinel1-opds/tree/master/misc/aws_get_s1.py)
+
+ 
 
 ## Acknowledgements
 
