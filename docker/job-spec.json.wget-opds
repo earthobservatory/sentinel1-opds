@@ -9,6 +9,10 @@
       "destination": "context"
     },
     {
+      "name": "parallel",
+      "destination": "context"
+    },
+    {
       "name": "query",
       "destination": "context"
     },

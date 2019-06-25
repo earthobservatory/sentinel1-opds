@@ -3,8 +3,8 @@ from pprint import pformat
 import logging
 import tarfile
 import glob
-import notify_by_email
-from hysds.celery import app
+# import notify_by_email
+# from hysds.celery import app
 import boto3
 from urlparse import urlparse
 import datetime
@@ -21,21 +21,23 @@ def wget_script(ziplist, query, parallel=False):
     if ziplist:
         wget_script_header = '#!/bin/bash\n#\n' + \
               '# query:\n#\n' + \
-              '%s#\n#\n#' % json.dumps(query) + \
+              '#%s#\n#\n#' % json.dumps(query) + \
               '# total SLC zips matched: %d\n\n' % len(ziplist)
 
         if not parallel:
+            print("Creating non-parallel wget script.")
             wget_script = wget_script_header
             for zip in ziplist:
-                base = os.path_splitext(os.path.basename(zip))[0]
+                base = os.path.splitext(os.path.basename(zip))[0]
                 logfile = 'wget_%s.log' %  base
                 wget_script += 'wget -c --no-check-certificate -o {} {}\n'.format(logfile,zip)
             create_script(wget_script, "wget_slc_all.sh")
 
         else:
+            print("Creating parallel wget script.")
             for zip in ziplist:
                 wget_script = wget_script_header
-                base = os.path_splitext(os.path.basename(zip))[0]
+                base = os.path.splitext(os.path.basename(zip))[0]
                 logfile = 'wget_%s.log' %  base
                 wget_script += 'wget -c --no-check-certificate -o {} {}\n'.format(logfile,zip)
                 create_script(wget_script, "wget_slc_%s.sh" % base)
@@ -209,6 +211,8 @@ def email(query, emails, rule_name):
 #         json.dump({"id": name, "version": "v0.1"}, fp)
 
 def create_script(commands, filename):
+    print("Creating script: %s" % filename)
+    print("Script content: %s" % commands)
     with open(filename, 'w') as f:
         f.write(commands)
         f.close()
@@ -237,10 +241,11 @@ if __name__ == "__main__":
     ctx = load_context()
     zip_list = []
     for product in ctx['download_products']:
-        zip_list.append(product["url"])
+        zip_list.append(product[0]["url"])
 
     # getting the script
-    wget_script(zip_list, ctx['query'], True)
+    print zip_list
+    wget_script(zip_list, ctx['query'], ctx['parallel'])
     # if emails == "unused":
     #     make_product(rule_name, query)
     # else:

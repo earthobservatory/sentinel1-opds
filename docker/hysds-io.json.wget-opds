@@ -11,6 +11,12 @@
       "lambda" : "lambda met: get_partial_products(met['_id'],get_best_url(met['_source']['urls'],'http'),[met['_source']['metadata']['archive_filename']])"
     },
     {
+      "name": "parallel",
+      "type": "boolean",
+      "from": "submitter",
+      "default": true
+    },
+    {
       "name": "query",
       "type": "text",
       "from": "passthrough"
@@ -24,6 +30,7 @@
       "name": "name",
       "type": "text",
       "from": "passthrough"
-    }
+    },
+
     ]
 }
