@@ -1,5 +1,5 @@
 {
-  "label":"OpenDataset  - Download scripts",
+  "label":"OpenDataset  - Create SLC download scripts",
   "component":"tosca",
   "submission_type":"individual",
   "allowed_accounts": [ "ops" ],

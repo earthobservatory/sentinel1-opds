@@ -1,6 +1,6 @@
 {
  "required_queues":["system-jobs-queue"],
- "command":"/home/ops/verdi/lightweight-jobs/wget.sh",
+ "command":"/home/ops/sentinel1-opds/wget_slc.py",
  "imported_worker_files":{"$HOME/.aws":"/home/ops/.aws"},
  "disk_usage":"3GB",
   "params" : [
@@ -10,15 +10,15 @@
     },
     {
       "name": "query",
-      "destination": "positional"
+      "destination": "context"
     },
     {
       "name": "emails",
-      "destination": "positional"
+      "destination": "context"
     },
     {
       "name": "name",
-      "destination": "positional"
+      "destination": "context"
     }
    ]
 }
