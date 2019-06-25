@@ -30,7 +30,7 @@
       "name": "name",
       "type": "text",
       "from": "passthrough"
-    },
+    }
 
     ]
 }
