@@ -1,0 +1,24 @@
+{
+ "required_queues":["system-jobs-queue"],
+ "command":"/home/ops/verdi/lightweight-jobs/wget.sh",
+ "imported_worker_files":{"$HOME/.aws":"/home/ops/.aws"},
+ "disk_usage":"3GB",
+  "params" : [
+    {
+      "name": "download_products",
+      "destination": "context"
+    },
+    {
+      "name": "query",
+      "destination": "positional"
+    },
+    {
+      "name": "emails",
+      "destination": "positional"
+    },
+    {
+      "name": "name",
+      "destination": "positional"
+    }
+   ]
+}

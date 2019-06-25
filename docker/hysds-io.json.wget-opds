@@ -1,0 +1,29 @@
+{
+  "label":"OpenDataset  - Download scripts",
+  "component":"tosca",
+  "submission_type":"individual",
+  "allowed_accounts": [ "ops" ],
+  "params" : [
+    {
+      "name":"download_products",
+      "from":"dataset_jpath:",
+      "type":"text",
+      "lambda" : "lambda met: get_partial_products(met['_id'],get_best_url(met['_source']['urls']),[met['_source']['metadata']['archive_filename']])"
+    },
+    {
+      "name": "query",
+      "type": "text",
+      "from": "passthrough"
+    },
+    {
+      "name": "emails",
+      "type": "text",
+      "from": "submitter"
+    },
+    {
+      "name": "name",
+      "type": "text",
+      "from": "passthrough"
+    }
+    ]
+}
