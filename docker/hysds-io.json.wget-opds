@@ -14,7 +14,7 @@
       "name": "parallel",
       "type": "boolean",
       "from": "submitter",
-      "default": true
+      "default": "true"
     },
     {
       "name": "query",
