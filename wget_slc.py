@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import json, requests, types, re, getpass, sys, os
 from pprint import pformat
 import logging
