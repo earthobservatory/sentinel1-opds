@@ -17,34 +17,37 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger("hysds")
 
 
-def wget_script(ziplist, query, parallel=False):
+def wget_script(ziplist, query, mode="wget", parallel=False):
     """Return wget script."""
     if ziplist:
-        wget_script_header = '#!/bin/bash\n#\n' + \
+        script_header = '#!/bin/bash\n#\n' + \
               '# query:\n#\n' + \
               '#%s#\n#\n#' % json.dumps(query) + \
               '# total SLC zips matched: %d\n\n' % len(ziplist)
 
+        if mode=="aws":
+            command = 'aws s3 cp {link}\n'
+        else:
+            command = 'wget -c --no-check-certificate -o wget_{base}.log {link}\n'
+
         if not parallel:
-            print("Creating non-parallel wget script.")
-            wget_script = wget_script_header
+            print("Creating non-parallel script.")
+            script = script_header
             for zip in ziplist:
                 base = os.path.splitext(os.path.basename(zip))[0]
-                logfile = 'wget_%s.log' %  base
-                wget_script += 'wget -c --no-check-certificate -o {} {}\n'.format(logfile,zip)
-            create_script(wget_script, "wget_slc_all.sh")
+                script += command.format(link=zip, base=base)
+            create_script(script, "get_slc_all.sh")
 
         else:
-            print("Creating parallel wget script.")
+            print("Creating parallel script.")
             for zip in ziplist:
-                wget_script = wget_script_header
+                script = script_header
                 base = os.path.splitext(os.path.basename(zip))[0]
-                logfile = 'wget_%s.log' %  base
-                wget_script += 'wget -c --no-check-certificate -o {} {}\n'.format(logfile,zip)
-                create_script(wget_script, "wget_slc_%s.sh" % base)
+                script += command.format(link=zip, base=base)
+                create_script(script, "get_slc_%s.sh" % base)
 
-    tar = tarfile.open("wget_slc.tar.gz", "w:gz")
-    for f in glob.glob('wget*.sh'):
+    tar = tarfile.open("get_slc.tar.gz", "w:gz")
+    for f in glob.glob('get*.sh'):
         tar.add(f)
     tar.close()
 
@@ -241,12 +244,13 @@ if __name__ == "__main__":
     # rule_name = sys.argv[3]
     ctx = load_context()
     zip_list = []
-    for product in ctx['download_products']:
+    download_prod = ctx['download_products_s3'] if ctx['mode'] == "s3" else ctx['download_products_wget']
+    for product in download_prod:
         zip_list.append(product[0]["url"])
 
     # getting the script
     print zip_list
-    wget_script(zip_list, ctx['query'], ctx['parallel'])
+    wget_script(zip_list, ctx['query'], ctx['mode'], ctx['parallel'])
     # if emails == "unused":
     #     make_product(rule_name, query)
     # else:
