@@ -246,7 +246,11 @@ if __name__ == "__main__":
     zip_list = []
     download_prod = ctx['download_products_s3'] if ctx['mode'] == "s3" else ctx['download_products_wget']
     for product in download_prod:
-        zip_list.append(product[0]["url"])
+        if ctx['mode']=="s3":
+            suf = product[0]["url"].split("amazonaws.com:80/")[1]
+            zip_list.append("s3://{}".format(suf))
+        else:
+            zip_list.append(product[0]["url"])
 
     # getting the script
     print zip_list
