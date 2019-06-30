@@ -17,6 +17,10 @@
       "destination": "context"
     },
     {
+      "name": "mode",
+      "destination": "context"
+    },
+    {
       "name": "emails",
       "destination": "context"
     },

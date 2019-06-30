@@ -5,16 +5,27 @@
   "allowed_accounts": [ "ops" ],
   "params" : [
     {
-      "name":"download_products",
+      "name":"download_products_wget",
       "from":"dataset_jpath:",
       "type":"text",
       "lambda" : "lambda met: get_partial_products(met['_id'],get_best_url(met['_source']['urls'],'http'),[met['_source']['metadata']['archive_filename']])"
+    },
+    {
+      "name":"download_products_s3",
+      "from":"dataset_jpath:",
+      "type":"text",
+      "lambda" : "lambda met: get_partial_products(met['_id'],get_best_url(met['_source']['urls'],'s3'),[met['_source']['metadata']['archive_filename']])"
     },
     {
       "name": "parallel",
       "type": "boolean",
       "from": "submitter",
       "default": "true"
+    },
+    {
+      "name": "mode",
+      "type": "enum",
+      "enumerables": ["s3","wget"]
     },
     {
       "name": "query",
