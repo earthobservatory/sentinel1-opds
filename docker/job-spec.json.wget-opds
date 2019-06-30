@@ -5,7 +5,11 @@
  "disk_usage":"3GB",
   "params" : [
     {
-      "name": "download_products",
+      "name": "download_products_wget",
+      "destination": "context"
+    },
+    {
+      "name": "download_products_s3",
       "destination": "context"
     },
     {
