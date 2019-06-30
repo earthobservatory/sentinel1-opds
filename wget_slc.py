@@ -25,7 +25,7 @@ def wget_script(ziplist, query, mode="wget", parallel=False):
               '#%s#\n#\n#' % json.dumps(query) + \
               '# total SLC zips matched: %d\n\n' % len(ziplist)
 
-        if mode=="aws":
+        if mode=="s3":
             command = 'aws s3 cp {link}\n'
         else:
             command = 'wget -c --no-check-certificate -o wget_{base}.log {link}\n'
