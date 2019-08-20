@@ -11,6 +11,8 @@ import datetime
 import requests
 import subprocess as sp
 
+SCIHUB_UN = "" # for scihub if you do not have .netrc file
+SCIHUB_PW = "" # for scihub if you do not have .netrc file
 SCIHUB_PROD_QUERY = "https://scihub.copernicus.eu/dhus/search?q=%s&format=json"
 OPDS_PROD_AWS = "s3://sentinel1-slc-seasia-pds/datasets/slc/v1.1/{year}/{month}/{day}/{slc_id}/{slc_id}.zip"
 OPS_PROD_HTTP = "http://sentinel1-slc-seasia-pds.s3-website-ap-southeast-1.amazonaws.com/datasets/slc/v1.1/{year}/{month}/{day}/{slc_id}/{slc_id}.zip"
@@ -27,19 +29,30 @@ def cmdLineParse():
                         help='list of slcs to check, comma-seperated')
     parser.add_argument('-dl', dest='s3_dl', help="Download from AWS OpenDataset to do full md5 sum check",
                         action='store_true', default=False)
+    parser.add_argument('-u', dest='un', help="Scihub Username, if you do not have .netrc file",
+                        default="")
+    parser.add_argument('-p', dest='pw', help="Scihub Password, if you do not have .netrc file",
+                        default="")
 
     return parser.parse_args()
 
 def get_zip_md(slc_id):
     # print("SLC: %s" % slc_id)
+    if SCIHUB_UN:
+        req_url = requests.get(SCIHUB_PROD_QUERY % slc_id, auth=(SCIHUB_UN,SCIHUB_PW))
+    else:
+        req_url = requests.get(SCIHUB_PROD_QUERY % slc_id)
 
-    req_url = requests.get(SCIHUB_PROD_QUERY % slc_id)
     req_url.raise_for_status()
 
     prod_url = req_url.json()["feed"]["entry"]["link"][1]["href"]
     # print("URL: %s" % prod_url)
 
-    req_md = requests.get(prod_url)
+    if SCIHUB_UN:
+        req_md = requests.get(prod_url, auth=(SCIHUB_UN,SCIHUB_PW))
+    else:
+        req_md = requests.get(prod_url)
+
     req_md.raise_for_status()
     content = req_md.text
     md5_res = re.search('\<d:Value\>(.*)\<\/d:Value\>', content, re.MULTILINE | re.DOTALL)
@@ -77,6 +90,8 @@ if __name__ == '__main__':
     inps = cmdLineParse()
 
     slc_str = inps.slc_list
+    SCIHUB_UN = inps.un
+    SCIHUB_PW = inps.pw
     slc_list = [item.strip() for item in slc_str.split(',')]
 
     for slc_id in slc_list:
