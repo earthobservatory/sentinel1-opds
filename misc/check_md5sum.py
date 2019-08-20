@@ -65,7 +65,7 @@ def get_opds_md(slc_id, scihub_md5="", dl = False):
         if os.path.exists("{}.zip".format(slc_id)) and sp.check_output("md5sum {}.zip".format(slc_id), shell=True).decode("utf-8").split()[0] in scihub_md5:
             md5 = scihub_md5
         else:
-            sp.check_call("aws s3 cp {} .".format(slc_s3), shell=True)
+            sp.check_call("aws s3 cp {} . --region ap-southeast-1 --no-sign-request".format(slc_s3), shell=True)
             # sp.check_call("wget -c --no-check-certificate {}".format(slc_http), shell=True)
             md5 = sp.check_output("md5sum {}.zip".format(slc_id), shell=True).decode("utf-8").split()[0]
 
