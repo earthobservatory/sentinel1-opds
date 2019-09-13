@@ -22,13 +22,21 @@ if __name__ == "__main__":
     # dec = decoded_string.replace('u""','"')
     # decoded_inp = dec.replace('""','"')
     decoded_inp = sys.argv[1]
+
     print decoded_inp
     if decoded_inp.startswith('{"query"') or decoded_inp.startswith("{u'query'") or decoded_inp.startswith("{'query'"):
         query_obj = json.loads(decoded_inp)
     else:
         query_obj["query"] = json.loads(decoded_inp)
 
+
     component = sys.argv[2]
     operation = sys.argv[3]
     s3_profile = sys.argv[4]
-    purge.purge_products(query_obj, component, operation, s3_profile)
+
+    if len(sys.argv) == 5:
+        purge.purge_products(query_obj, component, operation, s3_profile)
+    else:
+        purge.purge_products(query_obj, component, operation, s3_profile, sys.argv[5])
+
+

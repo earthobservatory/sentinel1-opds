@@ -1,0 +1,38 @@
+{
+  "label":"OpenDataset - Customized Purge",
+  "component":"tosca",
+  "submission_type":"individual",
+  "params" : [
+    {
+      "name": "query",
+      "type": "text",
+      "from": "passthrough"
+    },
+    {
+      "name": "component",
+      "from": "value",
+      "type": "text",
+      "value": "tosca"
+    },
+    {
+      "name": "operation",
+      "from": "value",
+      "type": "text",
+      "value": "purge"
+    },
+    {
+      "name": "s3_profile",
+      "from": "submitter",
+      "type": "enum",
+      "default": "default",
+      "enumerables": ["all", "files_only", "metadata_only"]
+    },
+    {
+      "name": "option",
+      "from": "submitter",
+      "type": "enum",
+      "default": "metadata_only",
+      "enumerables": ["all", "files_only", "metadata_only"]
+    }
+  ]
+}
