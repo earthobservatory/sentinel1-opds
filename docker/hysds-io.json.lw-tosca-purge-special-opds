@@ -25,7 +25,7 @@
       "from": "submitter",
       "type": "enum",
       "default": "default",
-      "enumerables": ["all", "files_only", "metadata_only"]
+      "enumerables": ["default", "opendataset"]
     },
     {
       "name": "option",
