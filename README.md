@@ -6,11 +6,11 @@ According to the data usage policy of ESA, Sentinel-1 (S1) Single Look Complex (
 The S1 SLC dataset contains Synthetic Aperture Radar (SAR) data obtained by the sensor Sentinel-1 operating in the microwave C-Band wavelength. The SAR sensors are installed on a two-satellite (Sentinel-1A and Sentinel-1B) constellation orbiting the Earth, operated by the European Space Agency. The S1 SLC data are a Level-1 product that consists of focused SAR data in zero-Doppler slant-range geometry, suitable for advanced processing with fewer processing steps as compared to Level-0 raw products. The Level-1 SLC product also preserves the radar backscatter amplitude and phase information in all-weather, day or night conditions, which is ideal for studying natural hazards and emergency response, land applications, oil spill monitoring, sea-ice conditions, and associated climate-change effects.
 
 
-## Accessing S1 SLC on AWS (South and Southeast Asia, Taiwan, and Japan)
+## Accessing S1 SLC on AWS (South and Southeast Asia, Taiwan, Korea and Japan)
 
 We ingest Sentinel-1A/B Level-1 Interferometric Wideswath(IW) SLC over the following region of interest:
 <p align="center">
-<img src="https://github.com/earthobservatory/sentinel1-opds/blob/master/misc/opendatasetaoi.png" width="650">
+<img src="https://github.com/earthobservatory/sentinel1-opds/blob/master/misc/opendatasetaoi2.png" width="650">
 </p>
 
 Specific geojson coordinates of the region of interest can be found [here](https://github.com/earthobservatory/sentinel1-opds/blob/master/misc/opendataset.geojson).
