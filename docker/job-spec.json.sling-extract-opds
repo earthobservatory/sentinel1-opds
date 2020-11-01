@@ -18,19 +18,7 @@
   "disk_usage": "50GB",
   "params" : [
     {
-      "name": "download_url",
-      "destination": "positional"
-    },
-    { 
-      "name": "file",
-      "destination": "positional"
-    },
-    { 
-      "name": "prod_name",
-      "destination": "positional"
-    },
-    { 
-      "name": "prod_date",
+      "name": "slc_id",
       "destination": "positional"
     }
   ]

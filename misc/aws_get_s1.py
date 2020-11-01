@@ -2,6 +2,8 @@
 
 # Author: Nina Lin
 
+from __future__ import print_function
+from builtins import str
 import csv
 from urllib.request import urlopen
 import shutil
@@ -31,9 +33,9 @@ Example:
     parser.add_argument('-n', '--nproc', type=int, required=False, dest='nproc',
             help='number of processor to be used. default: 1')
     if len(sys.argv) < 1:
-        print
+        print()
         parser.print_help()
-        print
+        print()
         sys.exit(1)
     inps = parser.parse_args()
     return inps

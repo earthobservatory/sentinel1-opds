@@ -33,7 +33,7 @@ def submit_qquery_job(region, query_endpoint, dns_list, qquery_rtag, sling_rtag,
 
     # set query priority
     priority = 0
-    if "priority" in region["metadata"].keys():
+    if "priority" in list(region["metadata"].keys()):
         priority = int(region["metadata"]["priority"])
 
     # determine qquery job submission branch
@@ -41,11 +41,11 @@ def submit_qquery_job(region, query_endpoint, dns_list, qquery_rtag, sling_rtag,
     job_spec = job_header + ":" + qquery_rtag
 
     # determine the repo to query from the types_map in the aoi
-    for qtype in region["metadata"]["query"].keys():  # list of endpoints to query
+    for qtype in list(region["metadata"]["query"].keys()):  # list of endpoints to query
         if qtype != query_endpoint:
             continue
         p = priority
-        if priority == 0 and "priority" in region["metadata"]["query"][qtype].keys():
+        if priority == 0 and "priority" in list(region["metadata"]["query"][qtype].keys()):
             p = int(region["metadata"]["query"][qtype]["priority"])
 
         rtime = datetime.datetime.utcnow()
@@ -158,7 +158,7 @@ if __name__ == "__main__":
             continue
 
         #skip regions without types_types map
-        if "query" not in region["metadata"].keys():
+        if "query" not in list(region["metadata"].keys()):
             continue
 
         #submit qquery for sling to own bucket
