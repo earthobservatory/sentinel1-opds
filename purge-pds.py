@@ -23,7 +23,7 @@ if __name__ == "__main__":
     # decoded_inp = dec.replace('""','"')
     decoded_inp = sys.argv[1]
 
-    print decoded_inp
+    print(decoded_inp)
     if decoded_inp.startswith('{"query"') or decoded_inp.startswith("{u'query'") or decoded_inp.startswith("{'query'"):
         query_obj = json.loads(decoded_inp)
     else:

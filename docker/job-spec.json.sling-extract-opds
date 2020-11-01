@@ -16,6 +16,8 @@
     "urgent-response-job_worker-small"
   ],
   "disk_usage": "50GB",
+  "soft_time_limit": 6000,
+  "time_limit": 6400,
   "params" : [
     {
       "name": "slc_id",
