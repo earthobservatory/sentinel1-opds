@@ -53,14 +53,15 @@ if __name__ == "__main__":
     parser.add_argument("slc_id", help="id of the localized file")
     args = parser.parse_args()
     prod_date = time.strftime('%Y-%m-%d')
+    slc_prod_name = args.slc_id.strip()+"-pds"
 
-    if sea.check_slc_status(args.slc_id.strip()+"-pds"):
+    if sea.check_slc_status(slc_prod_name):
         logging.info("Existing as we FOUND slc id : %s in ES query" % args.slc_id)
         exit(0)
 
     time.sleep(5)
     # Recheck as this method sometime does not work
-    if sea.check_slc_status(args.slc_id.strip()+"-pds"):
+    if sea.check_slc_status(slc_prod_name):
         logging.info("Existing as we FOUND slc id : %s in ES query" % args.slc_id)
         exit(0)
 
@@ -138,11 +139,11 @@ if __name__ == "__main__":
         if not sea.is_non_zero_file(archive_filename):
             raise Exception("File Not Found or Empty File : %s" % archive_filename)
 
-        sea.create_product(archive_filename, localize_url, args.slc_id+"-pds", prod_date, asf_md5_hash)
+        sea.create_product(archive_filename, localize_url, slc_prod_name, prod_date, asf_md5_hash)
         # TODO: ensure OPDS prefix is here for ingestion into opendataset bucket
 
         # Tag this job to open dataset with met.json
-        prod_path = os.path.abspath(prod_name)
+        prod_path = os.path.abspath(slc_prod_name)
         metadata_file = os.path.join(prod_path, '%s.met.json' % os.path.basename(prod_path))
 
         if os.path.exists(metadata_file):
