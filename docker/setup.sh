@@ -5,7 +5,7 @@ git clone https://github.com/earthobservatory/ariamh.git -b develop
 
 git clone https://github.com/earthobservatory/qquery.git
 
-git clone https://github.com/earthobservatory/lightweight-jobs.git -b sling-opds
+git clone https://github.com/earthobservatory/lightweight-jobs.git -b sling-opds-develop
 
 
 # Pulls in ARIA repos outside qquery
