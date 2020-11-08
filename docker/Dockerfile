@@ -11,7 +11,9 @@ RUN set -ex \
  && source /home/ops/verdi/bin/activate \
  && sudo chown -R ops:ops /home/ops/sentinel1-opds \
  && mv /home/ops/sentinel1-opds/ariamh /home/ops/  \
-  && mv /home/ops/sentinel1-opds/lightweight-jobs /home/ops/
+ && mv /home/ops/sentinel1-opds/lightweight-jobs /home/ops/ \
+ && mv /home/ops/sentinel1-opds/multi_acquisition_localizer /home/ops/
+
 # && mv /home/ops/sentinel1-opds/qquery /home/ops/qquery \
 # && mv /home/ops/sentinel1-opds/scihub /home/ops/scihub \
 # && mv /home/ops/sentinel1-opds/unavco /home/ops/unavco \
@@ -29,7 +31,7 @@ RUN set -ex \
 # && pip install -e .
 
 # for sling_extract.py to be referenced by sling_extract_opds.py, and for purge.py to be referenced by purge-pds.py
-ENV PYTHONPATH "${PYTHONPATH}:/home/ops/ariamh/frameMetadata:/home/ops/lightweight-jobs"
+ENV PYTHONPATH "${PYTHONPATH}:/home/ops/ariamh/frameMetadata:/home/ops/lightweight-jobs:/home/ops/multi_acquisition_localizer"
 
 
 # set entrypoint
