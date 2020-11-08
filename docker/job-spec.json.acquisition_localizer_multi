@@ -1,5 +1,5 @@
 {
-  "command": "/home/ops/verdi/ops/multi_acquisition_localizer/multi_acquisition_localizer.sh",
+  "command": "/home/ops/multi_acquisition_localizer/multi_acquisition_localizer.sh",
   "imported_worker_files": {
     "/home/ops/.netrc": ["/home/ops/.netrc"],
     "/home/ops/.aws": ["/home/ops/.aws", "ro"],
