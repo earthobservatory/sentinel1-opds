@@ -19,7 +19,7 @@
       "destination":"context"
     },
     {
-      "name": "spyddder_sling_extract_version",
+      "name": "opds_sling_extract_version",
       "destination": "context"
     },
     {
