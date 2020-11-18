@@ -16,25 +16,21 @@
   "time_limit": 3600,
   "disk_usage":"10GB",
   "params" : [
-  {
-    "name": "aoi",
-    "destination": "positional"
-  },
-  {
-    "name": "endpoint",
-    "destination": "positional"
-  },
-  {
-    "name": "sling_version",
-    "destination": "positional"
-  },
-  {
-    "name": "dns_list",
-    "destination": "positional"
-  },
-  {
-    "name": "pds_queue",
-    "destination": "positional"
-  }
+     {
+     "name": "aoi_name",
+     "destination": "context"
+    },
+    {
+      "name": "asf_ngap_download_queue",
+      "destination": "context"
+    },
+    {
+      "name":"esa_download_queue",
+      "destination":"context"
+    },
+    {
+      "name": "opds_sling_extract_version",
+      "destination": "context"
+    }
   ]
 }

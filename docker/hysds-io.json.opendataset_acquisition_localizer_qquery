@@ -1,0 +1,34 @@
+{
+    "label" : "Opendataset Acquisition Localizer - Qquery",
+    "allowed_accounts": [ "ops" ],
+    "submission_type":"individual",
+    "params" : [
+    {
+      "name": "aoi_name",
+      "from": "submitter",
+      "type": "text"
+    },
+    {
+      "name": "asf_ngap_download_queue",
+      "from": "submitter",
+      "type": "enum",
+      "default": "opds-job_worker-small",
+      "enumerables": ["opds-job_worker-small","spyddder-sling-extract-asf", "factotum-job_worker-asf_throttled", "NA"]
+    },
+    {
+      "name": "esa_download_queue",
+      "from": "submitter",
+      "type": "enum",
+      "default": "factotum-job_worker-scihub_throttled",
+      "enumerables": ["spyddder-sling-extract-scihub", "factotum-job_worker-apihub_throttled", "factotum-job_worker-scihub_throttled"]
+    },
+    {
+      "name": "opds_sling_extract_version",
+      "from": "submitter",
+      "default": "develop",
+      "type": "jobspec_version",
+      "version_regex": "job-sling-extract-opds",
+      "placeholder": "opds sling extract job version"
+    }
+    ]
+}
