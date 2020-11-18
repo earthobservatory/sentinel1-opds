@@ -3,6 +3,16 @@
     "allowed_accounts": [ "ops" ],
     "submission_type":"individual",
     "params" : [
+      {
+      "name": "starttime",
+      "from": "submitter",
+      "type": "text"
+    },
+      {
+      "name": "endtime",
+      "from": "submitter",
+      "type": "text"
+    },
     {
       "name": "aoi_name",
       "from": "submitter",

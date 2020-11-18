@@ -16,6 +16,14 @@
   "time_limit": 3600,
   "disk_usage":"10GB",
   "params" : [
+    {
+     "name": "starttime",
+     "destination": "context"
+    },
+    {
+     "name": "endtime",
+     "destination": "context"
+    },
      {
      "name": "aoi_name",
      "destination": "context"
