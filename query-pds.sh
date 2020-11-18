@@ -15,12 +15,12 @@ source $HOME/verdi/bin/activate
 echo "##########################################" 1>&2
 echo -n "Running query_pds.py on $1: " 1>&2
 date 1>&2
-$BASE_PATH/query_pds.py.py > query_pds.log 2>&1
+$BASE_PATH/query-pds.py.py > query-pds.log 2>&1
 STATUS=$?
-echo -n "Finished running $1 query_pds.py: " 1>&2
+echo -n "Finished running $1 query-pds.py: " 1>&2
 date 1>&2
 if [ $STATUS -ne 0 ]; then
-  echo "Failed to run $1 query_pds.py." 1>&2
+  echo "Failed to run $1 query-pds.py." 1>&2
   cat multi_acquisition_localizer.log 1>&2
   echo "{}"
   exit $STATUS
