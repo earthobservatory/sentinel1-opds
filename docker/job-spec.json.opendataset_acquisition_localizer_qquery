@@ -12,8 +12,8 @@
       "factotum-job_worker-scihub4_throttled",
       "factotum-job_worker-scihub5_throttled",
       "factotum-job_worker-unavco_throttled"],
-  "soft_time_limit": 3600,
-  "time_limit": 3600,
+  "soft_time_limit": 12000,
+  "time_limit": 12000,
   "disk_usage":"10GB",
   "params" : [
     {
