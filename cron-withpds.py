@@ -82,11 +82,12 @@ def validate_temporal_input(starttime, endtime, hours_delta):
     :param days_delta:
     :return:
     '''
+
     if isinstance(hours_delta, int):
         raise Exception("Please make sure the delta specified is a number")
 
     if starttime is None and hours_delta is not None:
-        return "{}Z".format((datetime.utcnow() - timedelta(hours=hours_delta)).isoformat()), "{}Z".format((datetime.utcnow().isoformat()))
+        return "{}Z".format((datetime.utcnow() - timedelta(hours=int(hours_delta))).isoformat()), "{}Z".format((datetime.utcnow().isoformat()))
     elif starttime is not None and hours_delta is None:
         if not endtime:
             raise Exception("Please specify endtime!")
