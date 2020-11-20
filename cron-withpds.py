@@ -12,9 +12,8 @@ import requests
 from datetime import datetime, timedelta
 import argparse
 import time
-from qquery.utilities import config, get_aois
-from hysds_commons.job_utils import submit_mozart_job
 from hysds.celery import app
+from hysds_commons.job_utils import submit_mozart_job
 from shapely.geometry import Polygon, Point
 
 
@@ -129,7 +128,7 @@ if __name__ == "__main__":
     # Setup input arguments here
     rule, params = get_job_params(job_type, start, end,  args.aoi_name, args.opds_sling_extract_version)
 
-    print("submitting job of type {} for {}".format(job_spec, qtype))
+    print("submitting job of type {}".format(job_spec))
     submit_mozart_job({}, rule,
         hysdsio={"id": "internal-temporary-wiring",
                  "params": params,
