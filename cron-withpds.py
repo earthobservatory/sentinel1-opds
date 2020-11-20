@@ -32,7 +32,7 @@ def get_job_params(job_type, starttime, endtime, aoi_name, sling_extract_tag):
 
     rule = {
         "rule_name": job_type.lstrip('job-'),
-        "queue": "factotum-job_worker-apihub_scraper_throttled",
+        "queue": "factotum-job_worker-asf_throttled",
         "priority": 5,
         "kwargs": '{}'
     }
