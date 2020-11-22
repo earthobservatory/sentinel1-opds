@@ -1,4 +1,4 @@
-FROM hysds/pge-base
+FROM hysds/isce2:latest-es1
 
 MAINTAINER aria-ops "aria-ops@list.jpl.nasa.gov"
 LABEL description="GRFN PGE container"
@@ -11,25 +11,27 @@ RUN set -ex \
  && source /home/ops/verdi/bin/activate \
  && sudo chown -R ops:ops /home/ops/sentinel1-opds \
  && mv /home/ops/sentinel1-opds/ariamh /home/ops/  \
-  && mv /home/ops/sentinel1-opds/lightweight-jobs /home/ops/ \
- && mv /home/ops/sentinel1-opds/qquery /home/ops/qquery \
- && mv /home/ops/sentinel1-opds/scihub /home/ops/scihub \
- && mv /home/ops/sentinel1-opds/unavco /home/ops/unavco \
- && mv /home/ops/sentinel1-opds/asf /home/ops/asf \
- && mv /home/ops/sentinel1-opds/apihub /home/ops/apihub \
- && cd /home/ops/qquery \
- && pip install -e . \
- && cd /home/ops/scihub \
- && pip install -e . \
- && cd /home/ops/unavco \
- && pip install -e . \
- && cd /home/ops/asf \
- && pip install -e . \
- && cd /home/ops/apihub \
- && pip install -e .
+ && mv /home/ops/sentinel1-opds/lightweight-jobs /home/ops/ \
+ && mv /home/ops/sentinel1-opds/multi_acquisition_localizer /home/ops/
+
+# && mv /home/ops/sentinel1-opds/qquery /home/ops/qquery \
+# && mv /home/ops/sentinel1-opds/scihub /home/ops/scihub \
+# && mv /home/ops/sentinel1-opds/unavco /home/ops/unavco \
+# && mv /home/ops/sentinel1-opds/asf /home/ops/asf \
+# && mv /home/ops/sentinel1-opds/apihub /home/ops/apihub \
+# && cd /home/ops/qquery \
+# && pip install -e . \
+# && cd /home/ops/scihub \
+# && pip install -e . \
+# && cd /home/ops/unavco \
+# && pip install -e . \
+# && cd /home/ops/asf \
+# && pip install -e . \
+# && cd /home/ops/apihub \
+# && pip install -e .
 
 # for sling_extract.py to be referenced by sling_extract_opds.py, and for purge.py to be referenced by purge-pds.py
-ENV PYTHONPATH "${PYTHONPATH}:/home/ops/ariamh/frameMetadata:/home/ops/lightweight-jobs"
+ENV PYTHONPATH "${PYTHONPATH}:/home/ops/ariamh/frameMetadata:/home/ops/lightweight-jobs:/home/ops/multi_acquisition_localizer"
 
 
 # set entrypoint

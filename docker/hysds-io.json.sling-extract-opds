@@ -5,19 +5,7 @@
   "allowed_accounts": [ "ops" ],
   "params" : [
     { 
-      "name": "download_url",
-      "from": "submitter"
-    },
-    { 
-      "name": "file",
-      "from": "submitter"
-    },
-    { 
-      "name": "prod_name",
-      "from": "submitter"
-    },
-    { 
-      "name": "prod_date",
+      "name": "slc_id",
       "from": "submitter"
     }
   ]

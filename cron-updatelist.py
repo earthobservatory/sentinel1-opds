@@ -6,6 +6,8 @@ http://sentinel1-slc-seasia-pds.s3-website-ap-southeast-1.amazonaws.com/datasets
 
 from __future__ import print_function
 
+from future import standard_library
+standard_library.install_aliases()
 import dateutil.parser
 from datetime import datetime, timedelta
 import argparse
@@ -14,7 +16,7 @@ import os
 import boto3
 import types
 import json
-import urlparse
+import urllib.parse
 import botocore
 
 S3_BUCKET = "sentinel1-slc-seasia-pds"
@@ -38,7 +40,7 @@ def get_matching_s3_objects(client, bucket, prefix='', suffix=''):
        https://alexwlchan.net/2018/01/listing-s3-keys-redux/."""
 
     kwargs = {'Bucket': bucket}
-    if isinstance(prefix, types.StringTypes):
+    if isinstance(prefix, (str,)):
         kwargs['Prefix'] = prefix
     while True:
         resp = client.list_objects_v2(**kwargs)
@@ -104,7 +106,7 @@ def gather_scenes(start_time, end_time):
 
             if this_id not in scenes_in_file:
                 metadata["id"] = this_id
-                metadata["download_url"] = urlparse.urljoin(urlparse.urljoin(OPENDATSET_URL, obj['Key']),
+                metadata["download_url"] = urllib.parse.urljoin(urllib.parse.urljoin(OPENDATSET_URL, obj['Key']),
                                                             "./{}".format(metadata['archive_filename']))
                 latitudes = [xy[0] for xy in metadata['bbox']]
                 longitudes = [xy[1] for xy in metadata['bbox']]
@@ -150,7 +152,7 @@ def gather_scenes(start_time, end_time):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("starttime", help="Start time in ISO8601 format", nargs='?',
-                        default="%sZ" % (datetime.utcnow()-timedelta(days=2)).isoformat())
+                        default="%sZ" % (datetime.utcnow()-timedelta(days=5)).isoformat())
     parser.add_argument("endtime", help="End time in ISO8601 format", nargs='?',
                         default="%sZ" % datetime.utcnow().isoformat())
     args = parser.parse_args()

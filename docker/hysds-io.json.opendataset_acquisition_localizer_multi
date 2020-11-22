@@ -1,0 +1,36 @@
+{
+  "label" : "Opendataset Acquisition Localizer - Multi",
+  "recommended-queues" : [ "system-jobs-queue" ],
+  "allowed_accounts": [ "ops" ],
+  "enable_dedup": false,
+  "submission_type":"individual",
+  "params" : [
+    {
+      "name": "asf_ngap_download_queue",
+      "from": "submitter",
+      "type": "enum",
+      "default": "opds-job_worker-small",
+      "enumerables": ["opds-job_worker-small","spyddder-sling-extract-asf", "factotum-job_worker-asf_throttled", "NA"]
+    },
+    {
+      "name": "esa_download_queue",
+      "from": "submitter",
+      "type": "enum",
+      "default": "factotum-job_worker-scihub_throttled",
+      "enumerables": ["spyddder-sling-extract-scihub", "factotum-job_worker-apihub_throttled", "factotum-job_worker-scihub_throttled"]
+    },
+    {
+      "name": "opds_sling_extract_version",
+      "from": "submitter",
+      "default": "develop",
+      "type": "jobspec_version",
+      "version_regex": "job-sling-extract-opds",
+      "placeholder": "opds sling extract job version"
+    },
+    {
+      "name":"products",
+      "type":"text",
+      "from":"dataset_jpath:_id"
+    } 
+  ]
+}

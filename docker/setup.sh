@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # clone ariamh to be moved to its final location by docker builder
-git clone https://github.com/earthobservatory/ariamh.git
+git clone https://github.com/earthobservatory/ariamh.git -b develop
 
-git clone https://github.com/earthobservatory/qquery.git
+git clone https://github.com/earthobservatory/multi_acquisition_localizer.git -b eos-opds-sling-pipeline
 
-git clone https://github.com/earthobservatory/lightweight-jobs.git -b sling-opds
+git clone https://github.com/earthobservatory/lightweight-jobs.git -b sling-opds-develop
 
 
 # Pulls in ARIA repos outside qquery

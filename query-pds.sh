@@ -1,35 +1,27 @@
-#!/usr/bin/env bash
+#!/bin/bash
+set -e
 
-# wrapper for qquery query.py
+BASE_PATH=$(dirname "${BASH_SOURCE}")
+BASE_PATH=$(cd "${BASE_PATH}"; pwd)
 
-QUERY_DIR=$HOME/qquery/qquery
+# source PGE env
+export PYTHONPATH=$BASE_PATH:$PYTHONPATH
+export PYTHONPATH=${PYTHONPATH}:${HOME}/verdi/etc
+export PATH=$BASE_PATH:$PATH
 
-#validate input args
-if [ -z "${1}" ]
-    then
-    echo "No aoi specified"
-    exit 1
-fi
-if [ -z "${2}" ]
-    then
-    echo "No query endpoint specified"
-    exit 1
-fi
-if [ -z "${3}" ]
-    then
-    echo "No sling release version specified"
-    exit 1
-fi
-if [ -z "${4}" ]
-    then
-    echo "No dns list specified"
-    exit 1
-fi
+# source environment
+source $HOME/verdi/bin/activate
 
-if [ -z "${5}" ]
-    then
-    echo "No opendataset queue name specified"
-    exit 1
+echo "##########################################" 1>&2
+echo -n "Running query_pds.py on $1: " 1>&2
+date 1>&2
+$BASE_PATH/query-pds.py > query-pds.log 2>&1
+STATUS=$?
+echo -n "Finished running $1 query-pds.py: " 1>&2
+date 1>&2
+if [ $STATUS -ne 0 ]; then
+  echo "Failed to run $1 query-pds.py." 1>&2
+  cat multi_acquisition_localizer.log 1>&2
+  echo "{}"
+  exit $STATUS
 fi
-
-${QUERY_DIR}/query.py --region ${1} --query-type ${2} --tag ${3} --dns_list ${4} --pds_queue ${5}

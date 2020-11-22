@@ -12,29 +12,33 @@
       "factotum-job_worker-scihub4_throttled",
       "factotum-job_worker-scihub5_throttled",
       "factotum-job_worker-unavco_throttled"],
-  "soft_time_limit": 3600,
-  "time_limit": 3600,
+  "soft_time_limit": 12000,
+  "time_limit": 12000,
   "disk_usage":"10GB",
   "params" : [
-  {
-    "name": "aoi",
-    "destination": "positional"
-  },
-  {
-    "name": "endpoint",
-    "destination": "positional"
-  },
-  {
-    "name": "sling_version",
-    "destination": "positional"
-  },
-  {
-    "name": "dns_list",
-    "destination": "positional"
-  },
-  {
-    "name": "pds_queue",
-    "destination": "positional"
-  }
+    {
+     "name": "starttime",
+     "destination": "context"
+    },
+    {
+     "name": "endtime",
+     "destination": "context"
+    },
+     {
+     "name": "aoi_name",
+     "destination": "context"
+    },
+    {
+      "name": "asf_ngap_download_queue",
+      "destination": "context"
+    },
+    {
+      "name":"esa_download_queue",
+      "destination":"context"
+    },
+    {
+      "name": "opds_sling_extract_version",
+      "destination": "context"
+    }
   ]
 }
