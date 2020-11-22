@@ -152,7 +152,7 @@ def gather_scenes(start_time, end_time):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("starttime", help="Start time in ISO8601 format", nargs='?',
-                        default="%sZ" % (datetime.utcnow()-timedelta(days=2)).isoformat())
+                        default="%sZ" % (datetime.utcnow()-timedelta(days=5)).isoformat())
     parser.add_argument("endtime", help="End time in ISO8601 format", nargs='?',
                         default="%sZ" % datetime.utcnow().isoformat())
     args = parser.parse_args()
