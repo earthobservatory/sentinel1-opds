@@ -124,7 +124,7 @@ if __name__ == "__main__":
                                 end.replace("-", "").replace(":", ""),
                                 rtime.strftime("%d_%b_%Y_%H:%M:%S"))
 
-    job_name = job_name.lstrip('job-')
+    job_name = job_name[4:]
 
     # Setup input arguments here
     rule, params = get_job_params(job_type, start, end,  args.aoi_name, args.opds_sling_extract_version)
